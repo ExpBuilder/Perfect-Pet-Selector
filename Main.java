@@ -6,6 +6,8 @@ public class Main {
         String favColor;
         String favSeason;
         String name;
+        boolean vowel;
+        String pet = "placeholder";
 
         // Scanner definition
         Scanner scanner = new Scanner(System.in);
@@ -23,7 +25,7 @@ public class Main {
 
         // Gets favorite season
         while (true) {
-            System.out.println("Enter your favorite season (Winter, Spring, Summer, Autumn)");
+            System.out.println("Enter your favorite season (Winter, Spring, Summer, or Autumn)");
             favSeason = scanner.nextLine();
             favSeason = (favSeason.toLowerCase()).trim();
             
@@ -35,11 +37,33 @@ public class Main {
         // Gets name
         System.out.println("Enter your name");
         name = scanner.nextLine();
+        vowel = ("aeiouAEIOU".indexOf(name.substring(0,1)) != -1);
 
         // Closes scanner 
         scanner.close();
 
         // Determines perfect pet
-        
+        if (favColor.equals("blue")) {
+            if (favSeason.equals("autumn")) pet = "alligator";
+            else if (favSeason.equals("spring")) pet = "ostrich";
+        } else if (favColor.equals("green")) {
+            if (!vowel && (favSeason.equals("winter"))) pet = "giraffe";
+            else if (!favSeason.equals("autumn")) pet = "dog";
+        } else {
+            if (vowel) pet = "panda";
+            else pet = "porcupine";
+        }
+
+        if (favSeason.equals("summer") && !(pet.equals("dog") || pet.equals("panda") || pet.equals("porcupine"))) {
+            if (pet.equals("placeholder")) pet = "pony";
+            else pet += " and pony";
+        }
+        if (!vowel && (favColor.equals("blue")) && !(favSeason.equals("summer") || favSeason.equals("autumn")) && !(pet.equals("ostrich"))) {
+            if (pet.equals("placeholder")) pet = "axolotl";
+            else pet += " and axolotl";
+        }
+
+        if (pet.equals("placeholder")) pet = "rock";
+        System.out.println(pet);
     }
 }
