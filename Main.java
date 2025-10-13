@@ -55,15 +55,15 @@ public class Main {
         }
 
         if (favSeason.equals("summer") && !(pet.equals("dog") || pet.equals("panda") || pet.equals("porcupine"))) {
-            if (pet.equals("placeholder")) pet = "pony";
-            else pet += " and pony";
+            pet = "pony";
         }
         if (!vowel && (favColor.equals("blue")) && !(favSeason.equals("summer") || favSeason.equals("autumn")) && !(pet.equals("ostrich"))) {
-            if (pet.equals("placeholder")) pet = "axolotl";
-            else pet += " and axolotl";
+            pet = "axolotl";
         }
 
         if (pet.equals("placeholder")) pet = "rock";
-        System.out.println(pet);
+
+
+        System.out.println("Your perfect pet is a" + pet);
     }
 }
