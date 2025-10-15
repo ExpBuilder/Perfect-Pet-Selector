@@ -23,7 +23,6 @@ public class Main {
             System.out.println("Enter your favorite color (Red, blue, or green)");
             favColor = scanner.nextLine();
             favColor = (favColor.toLowerCase()).trim();
-            
 
             // Checks if user input is valid. If so, the loop will end. Else the user will be asked again
             if ((favColor.equals("red")) || (favColor.equals("blue")) || (favColor.equals("green"))){
@@ -78,15 +77,12 @@ public class Main {
         if (favColor.equals("blue")) {
             if (favSeason.equals("autumn")) pet = "alligator";
             else if (favSeason.equals("spring")) pet = "ostrich";
-
         } else if (favColor.equals("green")) {
             if (!vowel && (favSeason.equals("winter"))) pet = "giraffe";
             else if (!favSeason.equals("autumn")) pet = "dog";
-
         } else {
             if (vowel) pet = "panda";
             else pet = "porcupine";
-
         }
 
         if (favSeason.equals("summer") && !(pet.equals("dog") || pet.equals("panda") || pet.equals("porcupine"))) {
