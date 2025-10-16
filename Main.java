@@ -17,6 +17,8 @@ public class Main {
         // Scanner definition
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("");
+
         // Repeatedly asks user for their favorite color (of those available) until they make a valid entry
         while (true) {
             // Asks user for favorite color
@@ -27,8 +29,10 @@ public class Main {
             // Checks if user input is valid. If so, the loop will end. Else the user will be asked again
             if ((favColor.equals("red")) || (favColor.equals("blue")) || (favColor.equals("green"))){
                 break;
-            } else System.out.println("Invalid imput. Please try again.");
+            } else System.out.println("\nInvalid imput. Please try again.\n");
         }
+
+        System.out.println("");
 
         // Repeatedly asks user for their favorite season until they make a valid entry
         while (true) {
@@ -40,14 +44,16 @@ public class Main {
             // Checks if user input is valid. If so, the loop will end. Else the user will be asked again
             if ((favSeason.equals("winter")) || (favSeason.equals("spring")) || (favSeason.equals("summer")) || (favSeason.equals("autumn"))){
                 break;
-            } else System.out.println("Invalid imput. Please try again.");
+            } else System.out.println("\nInvalid imput. Please try again.\n");
         }
+
+        System.out.println("");
 
         // Repeatedly asks user for their name until they enter a valid name
         boolean validName = true;
         while (true) {
             // Asks user for name
-            System.out.println("Enter your name (Without accents and other special characters)");
+            System.out.println("Enter your name (without accents and other special characters)");
             System.out.println("Periods, hyphens, and apostrophes are acceptable");
             name = scanner.nextLine();
 
@@ -64,7 +70,7 @@ public class Main {
             // Ends the infinite loop if the user input is valid
             if (validName) break;
             // Repeats the loop if user input is invalid
-            else System.out.println("Your input seems to contain invalid characters. Please try again");
+            else System.out.println("\nYour input seems to contain invalid characters. Please try again.\n");
         }
         // Determines if the user's (inputed) name begins with a vowel
         vowel = ("aeiouAEIOU".indexOf(name.substring(0,1)) != -1);
@@ -96,6 +102,6 @@ public class Main {
         if (pet.equals("placeholder")) pet = "rock";
 
         // Prints user's perfect pet
-        System.out.println("Your perfect pet is a " + pet);
+        System.out.println("\nredYour perfect pet is a " + pet);
     }
 }
