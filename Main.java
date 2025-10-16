@@ -17,6 +17,7 @@ public class Main {
         // Scanner definition
         Scanner scanner = new Scanner(System.in);
 
+        
         // Repeatedly asks user for their favorite color (of those available) until they make a valid entry
         while (true) {
             // Asks user for favorite color
@@ -30,28 +31,24 @@ public class Main {
             } else System.out.println("\nInvalid imput. Please try again.");
         }
 
-        System.out.println("");
-
         // Repeatedly asks user for their favorite season until they make a valid entry
         while (true) {
             // Asks user for favorite season
-            System.out.println("Enter your favorite season (Winter, Spring, Summer, or Autumn)");
+            System.out.println("\nEnter your favorite season (Winter, Spring, Summer, or Autumn)");
             favSeason = scanner.nextLine();
             favSeason = (favSeason.toLowerCase()).trim();
             
             // Checks if user input is valid. If so, the loop will end. Else the user will be asked again
             if ((favSeason.equals("winter")) || (favSeason.equals("spring")) || (favSeason.equals("summer")) || (favSeason.equals("autumn"))){
                 break;
-            } else System.out.println("\nInvalid imput. Please try again.\n");
+            } else System.out.println("\nInvalid imput. Please try again.");
         }
-
-        System.out.println("");
 
         // Repeatedly asks user for their name until they enter a valid name
         boolean validName = false;
         while (!validName) {
             // Asks user for name
-            System.out.println("Enter your name (without accents and other special characters)");
+            System.out.println("\nEnter your name (without accents and other special characters)");
             System.out.println("Periods, hyphens, and apostrophes are acceptable");
             name = scanner.nextLine();
             name = name.trim();
@@ -73,17 +70,18 @@ public class Main {
                     isVowel = ("aeiouAEIOU".indexOf(name.substring(0,1)) != -1);
 
                 } else {
-                    System.out.println("Your imput does not start with a letter. Please try again.");
+                    System.out.println("\nYour imput does not start with a letter. Please try again.");
                     validName = false;
                 }
             }
             // Repeats the loop if user input is invalid
-            else System.out.println("\nYour input seems to contain invalid characters. Please try again.\n");
+            else System.out.println("\nYour input seems to contain invalid characters. Please try again.");
         }
         
-        // Closes scanner as it is no longer used (github gets mad because of reasource leak if I don't close it).
+        // Closes scanner as it is no longer used (and Github gets mad because of reasource leak if I don't close it).
         scanner.close();
 
+        
         // Determines perfect pet based on user input
         // Logic is done in chronological order of what was written on the rubric
         if (favColor.equals("blue")) {
@@ -107,6 +105,7 @@ public class Main {
 
         if (pet.equals("placeholder")) pet = "rock";
 
+        
         // Prints user's perfect pet
         System.out.println("\nYour perfect pet is a " + pet);
     }
