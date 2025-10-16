@@ -11,25 +11,23 @@ public class Main {
         String favColor;
         String favSeason;
         String name;
-        boolean vowel;
+        boolean isVowel = false;
         String pet = "placeholder";
 
         // Scanner definition
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("");
-
         // Repeatedly asks user for their favorite color (of those available) until they make a valid entry
         while (true) {
             // Asks user for favorite color
-            System.out.println("Enter your favorite color (Red, blue, or green)");
+            System.out.println("\nEnter your favorite color (Red, blue, or green)");
             favColor = scanner.nextLine();
             favColor = (favColor.toLowerCase()).trim();
 
             // Checks if user input is valid. If so, the loop will end. Else the user will be asked again
             if ((favColor.equals("red")) || (favColor.equals("blue")) || (favColor.equals("green"))){
                 break;
-            } else System.out.println("\nInvalid imput. Please try again.\n");
+            } else System.out.println("\nInvalid imput. Please try again.");
         }
 
         System.out.println("");
@@ -50,13 +48,13 @@ public class Main {
         System.out.println("");
 
         // Repeatedly asks user for their name until they enter a valid name
-        boolean validName = true;
-        while (true) {
+        boolean validName = false;
+        while (!validName) {
             // Asks user for name
             System.out.println("Enter your name (without accents and other special characters)");
             System.out.println("Periods, hyphens, and apostrophes are acceptable");
             name = scanner.nextLine();
-
+            name = name.trim();
             validName = true;
 
             // Checks if user included invalid characters in their name
@@ -68,13 +66,21 @@ public class Main {
             }
 
             // Ends the infinite loop if the user input is valid
-            if (validName) break;
+            if (validName) {
+                // Determines if the user's imputed name begins with a letter
+                if ("abcdefghijklmnopqrstuvwxyz".indexOf((name.toLowerCase()).charAt(0)) != -1) {
+                    // Determines if the user's (inputed) name begins with a vowel
+                    isVowel = ("aeiouAEIOU".indexOf(name.substring(0,1)) != -1);
+
+                } else {
+                    System.out.println("Your imput does not start with a letter. Please try again.");
+                    validName = false;
+                }
+            }
             // Repeats the loop if user input is invalid
             else System.out.println("\nYour input seems to contain invalid characters. Please try again.\n");
         }
-        // Determines if the user's (inputed) name begins with a vowel
-        vowel = ("aeiouAEIOU".indexOf(name.substring(0,1)) != -1);
-
+        
         // Closes scanner as it is no longer used (github gets mad because of reasource leak if I don't close it).
         scanner.close();
 
@@ -84,10 +90,10 @@ public class Main {
             if (favSeason.equals("autumn")) pet = "alligator";
             else if (favSeason.equals("spring")) pet = "ostrich";
         } else if (favColor.equals("green")) {
-            if (!vowel && (favSeason.equals("winter"))) pet = "giraffe";
+            if (!isVowel && (favSeason.equals("winter"))) pet = "giraffe";
             else if (!favSeason.equals("autumn")) pet = "dog";
         } else {
-            if (vowel) pet = "panda";
+            if (isVowel) pet = "panda";
             else pet = "porcupine";
         }
 
@@ -95,13 +101,13 @@ public class Main {
             pet = "pony";
         }
 
-        if (!vowel && (favColor.equals("blue")) && !(favSeason.equals("summer") || favSeason.equals("autumn")) && !(pet.equals("ostrich"))) {
+        if (!isVowel && (favColor.equals("blue")) && !(favSeason.equals("summer") || favSeason.equals("autumn")) && !(pet.equals("ostrich"))) {
             pet = "axolotl";
         }
 
         if (pet.equals("placeholder")) pet = "rock";
 
         // Prints user's perfect pet
-        System.out.println("\nredYour perfect pet is a " + pet);
+        System.out.println("\nYour perfect pet is a " + pet);
     }
 }
