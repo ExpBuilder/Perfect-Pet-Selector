@@ -91,8 +91,8 @@ public class Main {
             if (!isVowel && (favSeason.equals("winter"))) pet = "giraffe";
             else if (!favSeason.equals("autumn")) pet = "dog";
         } else {
-            if (isVowel) pet = "panda";
-            else pet = "porcupine";
+            if (isVowel) pet = "porcupine";
+            else pet = "panda";
         }
 
         if (favSeason.equals("summer") && !(pet.equals("dog") || pet.equals("panda") || pet.equals("porcupine"))) {
